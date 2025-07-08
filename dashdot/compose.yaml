@@ -13,9 +13,10 @@ services:
     environment:
       DASHDOT_ENABLE_CPU_TEMPS: true
       DASHDOT_NETWORK_SPEED_AS_BYTES: true
+# Decomment labels if you want to access the dashboard outside of local.
 #    labels:
 #      - "traefik.enable=true"
-#      - "traefik.http.routers.dash.rule=Host(`dash.choucroute.dev`)"
+#      - "traefik.http.routers.dash.rule=Host(`example.domain.dev`)"
 #      - "traefik.http.routers.dash.entrypoints=websecure"
 #      - "traefik.http.routers.dash.tls=true"
 #      - "traefik.http.routers.dash.tls.certresolver=letsencrypt"
