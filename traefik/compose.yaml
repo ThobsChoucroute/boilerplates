@@ -1,0 +1,40 @@
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+    networks:
+      - traefik_proxy
+
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config/traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./letsencrypt/:/letsencrypt/:rw
+
+    environment:
+      - OVH_ENDPOINT=ovh-eu
+      - OVH_APPLICATION_KEY=${OVH_APPLICATION_KEY}
+      - OVH_APPLICATION_SECRET=${OVH_APPLICATION_SECRET}
+      - OVH_CONSUMER_KEY=${OVH_CONSUMER_KEY}
+
+    labels:
+       - "traefik.enable=true"
+       - "traefik.http.routers.traefik.rule=Host(`traefik.choucroute.dev`)"
+       - "traefik.http.routers.traefik.entrypoints=websecure"
+       - "traefik.http.routers.traefik.service=api@internal"
+       - "traefik.http.routers.traefik.tls=true"
+       - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
+       - "traefik.http.routers.traefik.middlewares=tinyauth"
+
+networks:
+  traefik_proxy:
+    name: traefik_proxy
+    external: true
