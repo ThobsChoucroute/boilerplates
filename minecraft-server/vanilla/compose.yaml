@@ -1,0 +1,39 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: vanilla-minecraft-server
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - 25566:25565
+    environment:
+      EULA: "TRUE"
+      TYPE: VANILLA
+      SERVER_NAME: "Minecraft Server"
+      MOTD: "Have fun ⛏️"
+      MAX_MEMORY: "8G"
+      VERSION: 1.21.7
+      DIFFICULTY: "normal"
+      VIEW_DISTANCE: 32
+      MODE: "survival"
+      ALLOW_FLIGHT: true
+      ENABLE_WHITELIST: false
+      ENABLE_AUTOPAUSE: true
+      AUTOPAUSE_TIMEOUT_EST: 1800 #30min before autopause if no one is connected
+      MAX_TICK_TIME: "-1"
+      ICON: "https://cdn2.steamgriddb.com/icon/34306fb932bcbe823afb4a0c675e3ece.png"
+      OVERRIDE_ICON: true
+      STOP_DURATION: 120
+      STOP_SERVER_ANNOUNCE_DELAY: 120
+    volumes:
+      - ./data:/data
+# Not tested yet. 
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.tcp.routers.minecraft.rule=Host(`example.domain.dev`)"
+#      - "traefik.port=25565"
+
+#networks:
+#  traefik_proxy:
+#    external: true
