@@ -1,0 +1,26 @@
+services:
+  dash:
+    image: mauricenino/dashdot:latest
+    container_name: dash
+    restart: unless-stopped
+    ports:
+      - 3001:3001
+    privileged: true
+    networks:
+      - traefik_proxy
+    volumes:
+      - /:/mnt/host:ro
+    environment:
+      DASHDOT_ENABLE_CPU_TEMPS: true
+      DASHDOT_NETWORK_SPEED_AS_BYTES: true
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.dash.rule=Host(`dash.choucroute.dev`)"
+#      - "traefik.http.routers.dash.entrypoints=websecure"
+#      - "traefik.http.routers.dash.tls=true"
+#      - "traefik.http.routers.dash.tls.certresolver=letsencrypt"
+#      - "traefik.http.services.dash.loadbalancer.server.port=3001"
+#      - "traefik.http.routers.dash.middlewares=tinyauth"
+networks:
+  traefik_proxy:
+    external: true
