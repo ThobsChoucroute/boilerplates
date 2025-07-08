@@ -1,0 +1,25 @@
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/homarr-labs/homarr:latest
+    restart: unless-stopped
+    networks:
+      - traefik_proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - ./appdata:/appdata
+    environment:
+      - SECRET_ENCRYPTION_KEY=${SECRET}
+    ports:
+      - '7575:7575'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homarr.rule=Host(`homarr.choucroute.dev`)"
+      - "traefik.http.routers.homarr.entrypoints=websecure"
+      - "traefik.http.routers.homarr.tls=true"
+      - "traefik.http.routers.homarr.tls.certresolver=letsencrypt"
+      - "traefik.http.services.homarr.loadbalancer.server.port=7575"
+      - "traefik.http.routers.homarr.middlewares=tinyauth"
+networks:
+  traefik_proxy:
+    external: true
