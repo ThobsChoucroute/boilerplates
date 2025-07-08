@@ -14,7 +14,7 @@ services:
       - '7575:7575'
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.homarr.rule=Host(`homarr.choucroute.dev`)"
+      - "traefik.http.routers.homarr.rule=Host(`example.domain.dev`)"
       - "traefik.http.routers.homarr.entrypoints=websecure"
       - "traefik.http.routers.homarr.tls=true"
       - "traefik.http.routers.homarr.tls.certresolver=letsencrypt"
