@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     environment:
       - SECRET=${SECRET}
-      - APP_URL=https://tinyauth.choucroute.dev
+      - APP_URL=https://example.domain.dev
       - USERS=${USERS}
       - DISABLE_CONTINUE=true
       - SESSION_EXPIRY=43200 #12 hours
@@ -20,7 +20,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik_proxy"
       - "traefik.http.routers.tinyauth.entrypoints=websecure"
-      - "traefik.http.routers.tinyauth.rule=Host(`tinyauth.choucroute.dev`)"
+      - "traefik.http.routers.tinyauth.rule=Host(`example.domain.dev`)"
       - "traefik.http.routers.tinyauth.tls=true"
       - "traefik.http.routers.tinyauth.tls.certresolver=letsencrypt"
       - "traefik.http.routers.tinyauth.service=tinyauth"
