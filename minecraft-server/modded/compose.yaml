@@ -1,0 +1,36 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: minecraft-modded-server
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+      - "24454:24454/udp" # If using a mod to make in-game vocal comm
+    environment:
+      EULA: "TRUE"
+      TYPE: NEOFORGE
+      NEOFORGE_VERSION: xx.x.xxx
+      SERVER_NAME: "Minecraft Server"
+      MOTD: "Have fun ! ⛏️"
+      VERSION: 1.21.1
+      # SEED: '-1550627298328035002'
+      # LEVEL_TYPE: minecraft:large_biomes
+      MAX_MEMORY: "16G"
+      # ICON: ""
+      #OVERRIDE_ICON: true
+      DIFFICULTY: "normal"
+      ENABLE_COMMAND_BLOCK: false
+      VIEW_DISTANCE: 32
+      MODE: "survival"
+      PVP: false
+      ALLOW_FLIGHT: true
+      ENABLE_WHITELIST: true
+
+      ENABLE_AUTOPAUSE: true
+      AUTOPAUSE_TIMEOUT_EST: 1800 #30min before autopause if no one is connected
+      MAX_TICK_TIME: "-1"
+    volumes:
+      - ./data:/data
+      - ./mods:/mods
