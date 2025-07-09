@@ -18,6 +18,7 @@ services:
       - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
       - "traefik.http.routers.portainer.middlewares=tinyauth"
+      - "tinyauth.allowed=/api/*"
 
 volumes:
   portainer_data:
