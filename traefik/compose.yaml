@@ -33,6 +33,7 @@ services:
        - "traefik.http.routers.traefik.tls=true"
        - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
        - "traefik.http.routers.traefik.middlewares=tinyauth"
+       - "tinyauth.allowed=/api/*"
 
 networks:
   traefik_proxy:
