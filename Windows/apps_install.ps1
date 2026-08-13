@@ -32,28 +32,29 @@ if (-not $elevated) {
 #   winget search "nom de l'appli"
 $apps = @(
     # Navigateur
-    @{ Id = "ImputNet.Helium"}               # Helium
+    @{ Id = "ImputNet.Helium"}             # Helium
 
     # Jeux
-    @{ Id = "Valve.Steam"}                  # Steam
-    @{ Id = "EpicGames.EpicGamesLauncher"}   # Epic Games
-    @{ Id = "Blizzard.BattleNet"; ExtraArgs = @("--location", "C:\Program Files (x86)\Battle.net") }  # Battle.net
+    @{ Id = "Valve.Steam"}                 # Steam
+    @{ Id = "EpicGames.EpicGamesLauncher"} # Epic Games
+    @{ Id = "Blizzard.BattleNet"; ExtraArgs = @("--location", "C:\Program Files (x86)\Battle.net") } # Battle.net
 
     # Utilitaires 
-    @{ Id = "Discord.Discord"}              # Discord
-    @{ Id = "Spotify.Spotify"; Elevation = "Prohibited"}  # Spotify (refuse d'etre installe en admin)
-    @{ Id = "Proton.ProtonVPN"}             # Proton VPN
-    @{ Id = "Skillbrains.Lightshot"}        # Lightshot
-    @{ Id = "AmN.yasb"}                     # YASB (Yet Another Status Bar)
-    @{ Id = "NZXT.CAM"}                     # NZXT CAM
-    @{ Id = "flux.flux"}                    # f.lux
-    @{ Id = "Flow-Launcher.Flow-Launcher"}  # Flow Launcher
-    @{ Id = "Logitech.GHUB"}                # Logitech G HUB
-    @{ Id = "GIGABYTE.RGBFusion"}            # RGB Fusion (Gigabyte)
+    @{ Id = "Discord.Discord"}             # Discord
+    @{ Id = "Spotify.Spotify"; Elevation = "Prohibited"} # Spotify (refuse d'etre installe en admin)
+    @{ Id = "Proton.ProtonVPN"}            # Proton VPN
+    @{ Id = "Skillbrains.Lightshot"}       # Lightshot
+    @{ Id = "AmN.yasb"}                    # YASB (Yet Another Status Bar)
+    @{ Id = "NZXT.CAM"}                    # NZXT CAM
+    @{ Id = "flux.flux"}                   # f.lux
+    @{ Id = "Flow-Launcher.Flow-Launcher"} # Flow Launcher
+    @{ Id = "Logitech.GHUB"}               # Logitech G HUB
+    @{ Id = "GIGABYTE.RGBFusion"}          # RGB Fusion (Gigabyte)
+    @{ Id = "UGREEN.UGREENNAS"}            # UGREEN NAS
 
     # Dev
-    @{ Id = "Microsoft.VisualStudioCode"}   # Visual Studio Code
-    @{ Id = "beekeeper-studio.beekeeper-studio"}  # Beekeeper Studio
+    @{ Id = "Microsoft.VisualStudioCode"}        # Visual Studio Code
+    @{ Id = "beekeeper-studio.beekeeper-studio"} # Beekeeper Studio
 )
 
 # --- Installation -------------------------------------------
