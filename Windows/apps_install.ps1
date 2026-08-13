@@ -51,6 +51,7 @@ $apps = @(
     @{ Id = "Logitech.GHUB"}               # Logitech G HUB
     @{ Id = "GIGABYTE.RGBFusion"}          # RGB Fusion (Gigabyte)
     @{ Id = "UGREEN.UGREENNAS"}            # UGREEN NAS
+    @{ Id = "7zip.7zip"}                   # 7-Zip
 
     # Dev
     @{ Id = "Microsoft.VisualStudioCode"}        # Visual Studio Code
