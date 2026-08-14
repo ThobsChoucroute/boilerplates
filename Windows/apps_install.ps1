@@ -32,7 +32,7 @@ if (-not $elevated) {
 #   winget search "nom de l'appli"
 $apps = @(
     # Navigateur
-    @{ Id = "ImputNet.Helium"}             # Helium
+    @{ Id = "Google.Chrome"}             # Chrome
 
     # Jeux
     @{ Id = "Valve.Steam"}                 # Steam
