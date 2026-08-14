@@ -38,6 +38,7 @@ $apps = @(
     @{ Id = "Valve.Steam"}                 # Steam
     @{ Id = "EpicGames.EpicGamesLauncher"} # Epic Games
     @{ Id = "Blizzard.BattleNet"; ExtraArgs = @("--location", "C:\Program Files (x86)\Battle.net") } # Battle.net
+    @{ Id = "Modrinth.ModrinthApp"}        # Modrinth
 
     # Utilitaires 
     @{ Id = "Discord.Discord"}             # Discord
